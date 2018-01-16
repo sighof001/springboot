@@ -20,7 +20,7 @@ public class LogAspect {
 	public void before(JoinPoint joinPoit){
 		MethodSignature signature = (MethodSignature)joinPoit.getSignature();
 		Method method = signature.getMethod();
-		System.out.println("方法规则拦截,method:" + method.getName());
+		System.out.println("鏂规硶鎷︽埅,method:" + method.getName());
 	}
 	
 	@After("annotationPointCut()")
@@ -29,6 +29,6 @@ public class LogAspect {
 		Method method = signature.getMethod();
 		Action action = method.getAnnotation(Action.class);
 		
-		System.out.println("注解拦截," + action.name());
+		System.out.println("娉ㄨВ鎷︽埅," + action.name());
 	}
 }

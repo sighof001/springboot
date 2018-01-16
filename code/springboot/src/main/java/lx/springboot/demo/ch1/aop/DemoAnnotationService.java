@@ -4,6 +4,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DemoAnnotationService {
-	@Action(name="×¢½âÀ¹½ØµÄadd²Ù×÷")
+	@Action(name="æ³¨è§£æ‹¦æˆª")
 	public void add(){}
 }
