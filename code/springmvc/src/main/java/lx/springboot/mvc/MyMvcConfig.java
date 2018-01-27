@@ -3,6 +3,8 @@ package lx.springboot.mvc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -38,6 +40,14 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter{
 		return new DemoInterceptor2();
 	}
 	
+	@Bean
+	public MultipartResolver multipartResolver(){
+		CommonsMultipartResolver r = new CommonsMultipartResolver();
+		r.setMaxUploadSize(1000000);
+		r.setDefaultEncoding("UTF-8");
+		return r;
+	}
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
@@ -51,6 +61,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter{
 	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/index2").setViewName("index");;
+		registry.addViewController("/index2").setViewName("/index");
+		registry.addViewController("/toUpload").setViewName("/upload");
 	}
 }
