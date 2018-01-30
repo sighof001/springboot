@@ -1,27 +1,25 @@
-package lx.springboot.demo;
+package lx.springboot.ch6_2_3;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lx.springboot.ch6_2_3.config.AuthorSettings;
+
 @RestController
 @SpringBootApplication
-@RequestMapping(value="/")
-public class DemoApplication {
-	@Value("${aaa}")
-	private String id;
-	
-	@Value("${bbb}")
-	private String name;
+public class Ch623Application {
+	@Autowired
+	private AuthorSettings authorSettings;
 	
 	@RequestMapping("/")
 	public String index() {
-		return "hello spring boot,id:" + id + ",name:" + name;
+		return "author.name:" + authorSettings.getName() + ",author.age:" + authorSettings.getAge();
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(Ch623Application.class, args);
 	}
 }
