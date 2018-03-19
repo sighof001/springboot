@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DemoApplication;
+
 @RestController
 public class DemoController {
 	private Logger logger = LoggerFactory.getLogger(DemoController.class);
@@ -18,7 +20,7 @@ public class DemoController {
 	@RequestMapping("/demo")
 	public String demo(String time) {
 		try {
-			String dirPath = "D:/demo";
+			String dirPath = DemoApplication.PATH;
 			File dir = new File(dirPath);
 			if (!dir.exists()) {
 				dir.mkdirs();
