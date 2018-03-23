@@ -156,4 +156,23 @@
   		</plugin>
   	</plugins>
   </build>
+  
+	<repositories>
+		<repository>
+			<id>nexus-dev</id>
+			<name>Nexus</name>
+			<url>http://203.75.156.151:8081/repository/maven-public</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>true</enabled> </snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus-dev</id>
+			<name>Nexus</name>
+			<url>http://203.75.156.151:8081/repository/maven-public</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>true</enabled> </snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 </project>

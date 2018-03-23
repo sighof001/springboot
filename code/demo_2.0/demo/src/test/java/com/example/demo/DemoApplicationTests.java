@@ -11,6 +11,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		String s = "2.22.16:13";
 	}
 
 }

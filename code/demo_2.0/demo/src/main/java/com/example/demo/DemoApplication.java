@@ -12,5 +12,6 @@ public class DemoApplication {
 			PATH = args[0];
 		}
 		SpringApplication.run(DemoApplication.class, args);
+		String s = "2.22 16:22";
 	}
 }
